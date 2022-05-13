@@ -33,7 +33,9 @@ public class Topic_02_Selenium_Locator {
 
 	@Test
 	public void TC_01_() {
-	driver.findElement(By.id("email")).sendkey("dam@gmail.com");
+		
+		driver.findElement(By.id("email")).sendkey("dam@gmail.com");
+		
 	
 		
 	}
