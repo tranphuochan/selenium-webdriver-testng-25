@@ -1,16 +1,19 @@
 package webdriver;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Sleeper;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic15_Element_Condition_Status {
+public class Topic15_ImplicitWait {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -27,21 +30,39 @@ public class Topic15_Element_Condition_Status {
 		driver.manage().window().maximize();
 		
 	}
-
 	@Test
-	public void TC_01_() {
+	public void TC_01_Not_Enough_Time() {
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		
-	
-	
+		driver.get("https://automationfc.github.io/dynamic-loading/");
+		
+		driver.findElement(By.xpath("//button[text()='Start']")).click();
+		
+		Assert.assertEquals(driver.findElement(By.cssSelector("div#finish")).getText(), "Hello World!");
+		
+
 	}
 
 	@Test
-	public void TC_02_() {
+	public void TC_02_Enough_Time() {
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		driver.get("https://automationfc.github.io/dynamic-loading/");
+		
+		driver.findElement(By.xpath("//button[text()='Start']")).click();
+		
+		Assert.assertEquals(driver.findElement(By.cssSelector("div#finish")).getText(), "Hello World!");
 		
 	}
 
 	@Test
-	public void TC_03() {
+	public void TC_03_More_Time() {
+		
+		driver.get("https://automationfc.github.io/dynamic-loading/");
+		
+		driver.findElement(By.xpath("//button[text()='Start']")).click();
+		
+		Assert.assertEquals(driver.findElement(By.cssSelector("div#finish")).getText(), "Hello World!");
 		
 	}
 
@@ -49,6 +70,7 @@ public class Topic15_Element_Condition_Status {
 	public void afterClass() {
 		driver.quit();
 	}
+	@Test
 	public void sleepInSecond(long timeoutInSecond) {
 		try {
 			Thread.sleep(timeoutInSecond * 1000);

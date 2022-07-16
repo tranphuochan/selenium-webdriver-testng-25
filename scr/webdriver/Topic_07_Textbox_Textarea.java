@@ -10,26 +10,27 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic15_Element_Condition_Status {
+public class Topic_07_Textbox_Textarea {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
-	String osName = System.getProperty("os.name");
 
 	@BeforeClass
 	public void beforeClass() {
-		if (osName.contains("MAC OS")) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
-		} else {
-		}
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
 	}
 
 	@Test
-	public void TC_01_() {
+	public void TC_01_guru() {
+		driver.get("https://demo.guru99.com/v4/index.php");
+		driver.findElement(By.xpath("//input[@name='uid']")).sendKeys("mngr417811");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("dApUdub");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		driver.findElement(By.xpath("//a[text()='New Customer']")).click();
+		
+		
 		
 	
 	
@@ -47,7 +48,7 @@ public class Topic15_Element_Condition_Status {
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	}
 	public void sleepInSecond(long timeoutInSecond) {
 		try {
