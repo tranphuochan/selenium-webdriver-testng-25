@@ -36,7 +36,7 @@ public class Topic15_ExplicitWait {
 	}
 
 	@Test
-	public void TC_03_Not_enough_Time() {
+	public void TC_05_Not_enough_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 3);
@@ -51,7 +51,7 @@ public class Topic15_ExplicitWait {
 	}
 
 	@Test
-	public void TC_03_Enough_Time() {
+	public void TC_05_Enough_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 5);
@@ -65,7 +65,7 @@ public class Topic15_ExplicitWait {
 	}
 
 	@Test
-	public void TC_03_More_Time() {
+	public void TC_05_More_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 20);
@@ -79,7 +79,7 @@ public class Topic15_ExplicitWait {
 	}
 	
 	@Test
-	public void TC_03_LoadingBAR_NOT_ENOUGH_Time() {
+	public void TC_04_LoadingBAR_NOT_ENOUGH_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 3);
@@ -92,7 +92,7 @@ public class Topic15_ExplicitWait {
 		
 	}
 	@Test
-	public void TC_03_LoadingBAR_ENOUGH_Time() {
+	public void TC_04_LoadingBAR_ENOUGH_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 5);
@@ -105,7 +105,7 @@ public class Topic15_ExplicitWait {
 		
 	}
 	@Test
-	public void TC_03_LoadingBAR_More_Time() {
+	public void TC_04_LoadingBAR_More_Time() {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		
 		explicitWait = new WebDriverWait(driver, 20);
@@ -117,7 +117,6 @@ public class Topic15_ExplicitWait {
 		Assert.assertEquals(driver.findElement(By.cssSelector("div#finish h4")).getText(), "Hello World!");
 		
 	}
-
 	
 	
 	@AfterClass
